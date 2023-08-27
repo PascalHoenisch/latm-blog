@@ -19,12 +19,6 @@
 
 <slot/>
 
-<style lang="postcss">
-    :global(html) {
-
-
-    }
-</style>
 
 <!--<script>
     import { t, locale, locales } from "./i18n";
