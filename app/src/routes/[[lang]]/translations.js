@@ -7,6 +7,7 @@ export default {
         "spanish":"spanish",
         "english":"english",
         "german":"german",
+        "homepage.blog.description":"Here are some blogs.",
     },
     es: {
         "init":" ",
@@ -16,6 +17,7 @@ export default {
         "spanish":"espanol",
         "english":"Inglés",
         "german":"Alemán",
+        "homepage.blog.description":"Auqi hay algunos blogs",
     },
     de: {
         "init":" ",
@@ -25,5 +27,6 @@ export default {
         "spanish":"spanisch",
         "english":"englisch",
         "german":"deutsch",
+        "homepage.blog.description":"Hier sind ein paar blogs.",
     }
 };
