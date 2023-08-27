@@ -1,5 +1,6 @@
 <script>
     import {t, locale} from "./i18n.js";
+    import "$css/app.css";
 
     export let data;
     locale.set(data.language)
@@ -17,6 +18,13 @@
 </nav>
 
 <slot/>
+
+<style lang="postcss">
+    :global(html) {
+
+
+    }
+</style>
 
 <!--<script>
     import { t, locale, locales } from "./i18n";

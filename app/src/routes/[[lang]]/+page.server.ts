@@ -7,8 +7,6 @@ export const load: PageServerLoad = async function () {
             title: 1
         }}).toArray();
 
-    console.log('data', data)
-
     return {
         blogs: structuredClone(data)
     }
