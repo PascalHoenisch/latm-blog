@@ -1,3 +1,4 @@
-ltm-db
+mongo-data
+mongo-log
 .env
 .env-mongo
