@@ -6,7 +6,7 @@ db = db.getSiblingDB('blogs')
 db.createUser({
   user: '$BLOG_USER',
   pwd: '$BLOG_PASSWORD',
-  roles: [{ role: 'readWrite', db: 'blog' }],
+  roles: [{ role: 'readWrite', db: 'blogs' }],
 });
 db.createCollection('blogs')
 
