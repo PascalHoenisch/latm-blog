@@ -2,6 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
-html{
-    background-color: theme(colors.gray.100);
+html {
+    @apply text-gray-900 bg-gray-100;
+}
+
+h1{
+    @apply text-xl;
+}
+h2 {
+    @apply text-gray-600 text-lg;
+}
+h3,
+h4,
+h5,
+h6 {
+    font-size: inherit;
+    font-weight: inherit;
+}
+a{
+    @apply text-gray-500 hover:text-gray-700;
+    @apply transition duration-150 ease-in-out hover:underline-offset-4
 }

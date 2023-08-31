@@ -1,24 +1,56 @@
 <script>
     import {t, locale} from "./i18n.js";
     import "$css/app.css";
+    import { fade, fly } from 'svelte/transition';
 
     export let data;
-    locale.set(data.language)
+    locale.set(data.language);
+
+    let menuStatus = false;
+    function clickMobileMenu() {
+        menuStatus = !menuStatus
+    }
+
 </script>
 
-<nav>
-    <a href="/{data.language}">home</a>
-    <a href="/{data.language}/blog">blog</a>
-</nav>
+<div class="p-3 sm:p-3" id="header">
+    <div class="rounded-xl flex flex-row">
+        <div class="text-start grow">
+            <h1>Latm-Blog</h1>
+            <h2>Subtitle</h2>
+        </div>
+        <div class="flex-none">
+            <button id="mobile-menu-button" on:click={clickMobileMenu}>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                     stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+    {#if menuStatus}
+        <div in:fly={{ y:0, duration: 2000 }} out:fade id="mobile-nav-bar" class="">
+            <nav>
+                <a href="/{data.language}">home</a>
+                <a href="/{data.language}/blog">blog</a>
+            </nav>
 
-<nav>
-    <a data-sveltekit-reload href="/en">{$t("english")}</a>
-    <a data-sveltekit-reload href="/de">{$t("german")}</a>
-    <a data-sveltekit-reload href="/es">{$t("spanish")}</a>
-</nav>
+            <nav>
+                <a data-sveltekit-reload href="/en">{$t("english")}</a>
+                <a data-sveltekit-reload href="/de">{$t("german")}</a>
+                <a data-sveltekit-reload href="/es">{$t("spanish")}</a>
+            </nav>
+        </div>
+    {/if}
+</div>
 
-<slot/>
+<div class="container m-3" id="body">
+    <slot/>
+</div>
 
+<div class="footer">
+
+</div>
 
 <!--<script>
     import { t, locale, locales } from "./i18n";
