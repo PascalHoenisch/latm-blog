@@ -32,7 +32,7 @@
     <div class="rounded-xl flex flex-row">
         <div class="text-start grow">
             <h1>Latm-Blog</h1>
-            <h2>Subtitle</h2>
+            <h2>{$t("homepage.subtitle")}</h2>
         </div>
         <div class="flex-none">
             <button id="mobile-menu-button" on:click={clickMobileMenu}>

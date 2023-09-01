@@ -2,6 +2,7 @@ export default {
     en: {
         "init":" ",
         "homepage.title": "Hello, World!",
+        "homepage.subtitle": "travel by coincidence",
         "homepage.welcome": "Hi <strong>{{name}}</strong>, how are you?",
         "homepage.time": "The current time is: {{time}}",
         "spanish":"spanish",
@@ -14,6 +15,7 @@ export default {
     es: {
         "init":" ",
         "homepage.title": "¡Hola Mundo!",
+        "homepage.subtitle": "viajar por casualidad",
         "homepage.welcome": "Hola, <strong>{{name}}</strong>, ¿cómo estás?",
         "homepage.time": "La hora actual es: {{time}}",
         "spanish":"espanol",
@@ -26,6 +28,7 @@ export default {
     de: {
         "init":" ",
         "homepage.title": "Hallo Welt!",
+        "homepage.subtitle": "reisen mit Zufall",
         "homepage.welcome": "Hallo, <strong>{{name}}</strong>, wie gehts dir?",
         "homepage.time": "Die aktuelle Zeit ist: {{time}}",
         "spanish":"spanisch",
