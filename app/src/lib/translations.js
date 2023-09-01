@@ -9,6 +9,7 @@ export default {
         "german":"german",
         "homepage.blog.description":"Here are some blogs.",
         "About":"About",
+        "about.proclaimed":"Some information about us",
     },
     es: {
         "init":" ",
@@ -20,6 +21,7 @@ export default {
         "german":"Alemán",
         "homepage.blog.description":"Auqi hay algunos blogs",
         "About":"Acerca de",
+        "about.proclaimed":"algo de informacion sobre nosotros",
     },
     de: {
         "init":" ",
@@ -31,5 +33,6 @@ export default {
         "german":"deutsch",
         "homepage.blog.description":"Hier sind ein paar blogs.",
         "About":"Über uns",
+        "about.proclaimed":"Ein paar Information über uns",
     }
 };

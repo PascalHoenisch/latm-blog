@@ -1,5 +1,5 @@
 <script>
-    import {t, locale} from "./i18n.js";
+    import {t, locale} from "$lib/i18n.js";
     import "$css/app.css";
     import {fade, fly} from 'svelte/transition';
 
@@ -96,7 +96,7 @@
 </div>
 
 {#if !menuStatus}
-    <div class="container m-3" id="body" in:fly={{ y:400, duration: 500 }} out:fly={{ y:400, duration: 400 }}>
+    <div class="container px-3" id="body" in:fly={{ y:400, duration: 500 }} out:fly={{ y:400, duration: 400 }}>
         <slot/>
     </div>
 

@@ -1,5 +1,4 @@
-import { locales } from "./i18n";
-import {writable} from "svelte/store";
+import { locales } from "$lib/i18n";
 
 // @ts-ignore
 export function load({params}) {

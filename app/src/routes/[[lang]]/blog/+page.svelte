@@ -1,5 +1,5 @@
 <script>
-    import {t} from "../i18n.js";
+    import {t} from "$lib/i18n.js";
 
     export let data;
 </script>

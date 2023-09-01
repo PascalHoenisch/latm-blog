@@ -1,10 +1,8 @@
 <script lang="ts">
-    import {locale, t} from "./i18n.js";
+    import {locale, t} from "$lib/i18n.js";
     import type {PageData} from './$types'
 
     export let data: PageData
-
-    console.log(data.language)
 
     $: ({blogs} = data)
     // export let data;
