@@ -20,6 +20,6 @@ h6 {
     font-weight: inherit;
 }
 a{
-    @apply text-gray-500 hover:text-gray-700;
-    @apply transition duration-150 ease-in-out hover:underline-offset-4
+    @apply md:text-gray-500 hover:md:text-gray-700;
+    @apply transition duration-150 hover:underline-offset-4
 }

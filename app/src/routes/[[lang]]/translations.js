@@ -8,6 +8,7 @@ export default {
         "english":"english",
         "german":"german",
         "homepage.blog.description":"Here are some blogs.",
+        "About":"About",
     },
     es: {
         "init":" ",
@@ -18,6 +19,7 @@ export default {
         "english":"Inglés",
         "german":"Alemán",
         "homepage.blog.description":"Auqi hay algunos blogs",
+        "About":"Acerca de",
     },
     de: {
         "init":" ",
@@ -28,5 +30,6 @@ export default {
         "english":"englisch",
         "german":"deutsch",
         "homepage.blog.description":"Hier sind ein paar blogs.",
+        "About":"Über uns",
     }
 };
