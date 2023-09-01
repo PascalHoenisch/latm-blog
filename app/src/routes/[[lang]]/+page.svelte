@@ -1,7 +1,6 @@
 <script lang="ts">
     import {locale, t} from "$lib/lang/i18n.js";
     import type {PageData} from './$types'
-    // import cat from ""
 
     export let data: PageData
 
@@ -15,7 +14,7 @@
     {#each blogs as blog}
         <article class="flex flex-col">
             <div>
-                <img src="%sveltekit.assets%/favicon.png" alt="blog image">
+                <img src="" alt="blog image">
             </div>
             <div>
                 <h3>

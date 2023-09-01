@@ -15,6 +15,7 @@ const config = {
 		alias: {
 			$db: './src/db',
 			$css: './src/css',
+			$img: './src/img',
 		}
 	}
 };
