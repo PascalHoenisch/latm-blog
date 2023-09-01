@@ -14,7 +14,7 @@
     {#each blogs as blog}
         <article class="flex flex-col">
             <div>
-                <img src="" alt="blog image">
+                <img src="{data.imageServerUrl}/cat.jpg" alt="blog image">
             </div>
             <div>
                 <h3>
