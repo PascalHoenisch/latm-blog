@@ -1,6 +1,7 @@
 <script lang="ts">
-    import {locale, t} from "$lib/i18n.js";
+    import {locale, t} from "$lib/lang/i18n.js";
     import type {PageData} from './$types'
+    // import cat from ""
 
     export let data: PageData
 
@@ -8,13 +9,32 @@
     // export let data;
     locale.set(data.language)
 </script>
-<p>test</p>
 <h1>{$t("homepage.title")}</h1>
 
 <section>
     {#each blogs as blog}
-        <article>
-            <h3>{blog.title}</h3>
+        <article class="flex flex-col">
+            <div>
+                <img src="%sveltekit.assets%/favicon.png" alt="blog image">
+            </div>
+            <div>
+                <h3>
+                    {blog.title.en}
+                </h3>
+            </div>
+            <div>
+                <div class="flex flex-row">
+                    <div>
+                        {blog.date}
+                    </div>
+                    <div>
+                        {blog.tag}
+                    </div>
+                </div>
+            </div>
+            <div>
+                {blog.description[data.language]}
+            </div>
         </article>
     {/each}
 </section>

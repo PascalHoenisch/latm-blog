@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {locale, t} from "$lib/i18n.js";
+    import {locale, t} from "$lib/lang/i18n.js";
 
     export let data;
     locale.set(data.language)

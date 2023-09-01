@@ -1,4 +1,4 @@
-import { locales } from "$lib/i18n";
+import { locales } from "$lib/lang/i18n.js";
 
 // @ts-ignore
 export function load({params}) {

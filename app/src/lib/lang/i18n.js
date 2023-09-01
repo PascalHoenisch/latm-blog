@@ -1,5 +1,5 @@
 import { derived, writable } from "svelte/store";
-import translations from "./translations";
+import translations from "./translations.js";
 
 export const locale = writable("de");
 

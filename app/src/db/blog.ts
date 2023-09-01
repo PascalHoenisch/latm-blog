@@ -1,3 +1,3 @@
 import db from '$db/mongo'
 
-export const blogs = db.collection('blog')
+export const blogs = db.collection('blogs')
