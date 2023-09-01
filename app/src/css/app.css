@@ -21,5 +21,8 @@ h6 {
 }
 a{
     @apply md:text-gray-500 hover:md:text-gray-700;
-    @apply transition duration-150 hover:underline-offset-4
+    @apply transition duration-150 hover:underline-offset-4;
+}
+img{
+    @apply rounded-xl border border-gray-400 w-full h-full;
 }
