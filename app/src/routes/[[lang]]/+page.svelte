@@ -14,7 +14,11 @@
     {#each blogs as blog}
         <article class="flex flex-col mt-3">
             <div>
-                <img src="{data.imageServerUrl}/cat.jpg" alt="blog image">
+                <img
+                        src="{data.imageServerUrl}{blog.title_image.path}"
+                        alt="{blog.title_image.description[data.language]}"
+                        loading="lazy"
+                >
             </div>
             <div>
                 <div class="flex flex-row mt-5 mb-2 text-gray-600">
@@ -37,7 +41,8 @@
             <div class="pt-5">
                 <div class="flex flex-row">
                     <div>
-                        <img src="{data.imageServerUrl}/author/the-other-cat.png" alt="author smiling at you" class="rounded-full w-11 h-11">
+                        <img src="{data.imageServerUrl}/author/the-other-cat.png" alt="author smiling at you"
+                             class="rounded-full w-11 h-11">
                     </div>
                     <div class="ms-3 flex flex-col">
                         <div>

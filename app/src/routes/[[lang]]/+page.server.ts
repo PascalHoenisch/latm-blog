@@ -9,6 +9,7 @@ export const load: PageServerLoad = async function () {
             author: 1,
             description: 1,
             tag: 1,
+            title_image: 1
         }}).toArray();
 
     return {
