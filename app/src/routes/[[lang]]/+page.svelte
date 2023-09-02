@@ -8,7 +8,7 @@
     // export let data;
     locale.set(data.language)
 </script>
-<h1>{$t("homepage.title")}</h1>
+<!--<h1>{$t("homepage.title")}</h1>-->
 
 <section>
     {#each blogs as blog}
@@ -45,6 +45,7 @@
                         </div>
                         <div class="text-sm text-gray-500 font-light">socking the world</div>
                     </div>
+
                 </div>
             </div>
         </article>
