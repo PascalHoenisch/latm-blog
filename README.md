@@ -9,7 +9,8 @@ This blog is also my first time using Node.js / Svelte.
 ### Env
 
    ```shell
-    cp env.dist .env   
+    cp env.dist .env
+    cp app/env.dist .env
    ```
 
 Then change the credentials to something save.

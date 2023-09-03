@@ -5,3 +5,5 @@ db-seeding:
 	docker exec latm-blog-mongo-1 sh /seeding-copy.sh
 down:
 	docker compose down
+backend-up:
+	docker compose up -d
