@@ -7,6 +7,11 @@ db.getCollection("blogs").insertOne({
         es: "Db siembra",
         de: "Db sähen",
     },
+    slug: {
+        en: "ab-seeding",
+        es: "db-siembra",
+        de: "db-sähen",
+    },
     description: {
         en: "This article is all about database seeding. It shows how to setup a manual workflow with docker/ docker compose and mongo db to add some test data.",
         es: "Este articulo trata sobre la siembra de bases de datos. Muestra cómo configurar " +
