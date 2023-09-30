@@ -11,6 +11,10 @@ export default {
         "homepage.blog.description":"Here are some blogs.",
         "About":"About",
         "about.proclaimed":"Some information about us",
+        "Imprint":"Imprint",
+        "Privacy":"Privacy",
+        "imprint.legal.text":"You can contact me here (this mail address is not checked so often ;) ):",
+        "privacy.legal.text":"todo",
     },
     es: {
         "init":" ",
@@ -24,6 +28,10 @@ export default {
         "homepage.blog.description":"Auqi hay algunos blogs",
         "About":"Acerca de",
         "about.proclaimed":"algo de informacion sobre nosotros",
+        "Imprint":"Imprimir",
+        "Privacy":"Privacidad",
+        "imprint.legal.text":"Ouedes contactarme aqui:",
+        "privacy.legal.text":"todo",
     },
     de: {
         "init":" ",
@@ -37,5 +45,9 @@ export default {
         "homepage.blog.description":"Hier sind ein paar blogs.",
         "About":"Über uns",
         "about.proclaimed":"Ein paar Information über uns",
+        "Imprint":"Impressum",
+        "Privacy":"Datenschutz",
+        "imprint.legal.text":"Da es sich bei dieser Website nicht um um einen geschäftsmäßigen Online-Dienst nach 5 Telemediengesetz (TMG) handelt, müssen keine Kontaktdaten angegeben werden. Hier kannst du mich trotzdem erreichen (wird nur nicht so oft gelesen):",
+        "privacy.legal.text":"todo",
     }
 };

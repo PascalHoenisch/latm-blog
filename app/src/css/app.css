@@ -30,3 +30,7 @@ img{
 .post-header {
     @apply text-lg font-semibold text-gray-800;
 }
+
+.footer {
+    @apply text-gray-600 hover:text-gray-900 text-sm;
+}
