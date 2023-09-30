@@ -1,9 +1,9 @@
-import type {PageServerLoad} from '../../../../.svelte-kit/types/src/routes'
+import type {PageServerLoad} from './$types'
+import {IMPRINT_MAIL} from "$env/static/private";
 
 export const load: PageServerLoad = async function () {
-    const data = null
 
     return {
-        blogs: structuredClone(data)
+        imprintMailAdress: IMPRINT_MAIL
     }
 }

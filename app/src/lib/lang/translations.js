@@ -47,7 +47,7 @@ export default {
         "about.proclaimed":"Ein paar Information über uns",
         "Imprint":"Impressum",
         "Privacy":"Datenschutz",
-        "imprint.legal.text":"Da es sich bei dieser Website nicht um um einen geschäftsmäßigen Online-Dienst nach 5 Telemediengesetz (TMG) handelt, müssen keine Kontaktdaten angegeben werden. Hier kannst du mich trotzdem erreichen (wird nur nicht so oft gelesen):",
+        "imprint.legal.text":"Da es sich bei dieser Website nicht um einen geschäftsmäßigen Online-Dienst nach 5 Telemediengesetz (TMG) handelt, müssen keine Kontaktdaten angegeben werden. Hier kannst du mich trotzdem erreichen (wird nur nicht so oft gelesen):",
         "privacy.legal.text":"todo",
     }
 };
