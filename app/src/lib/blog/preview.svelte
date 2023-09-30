@@ -1,4 +1,6 @@
 <script>
+    import Meta from "$lib/blog/meta.svelte";
+
     export let language;
     export let imageServerUrl;
     export let blog;
@@ -13,19 +15,15 @@
                 loading="lazy"
         >
     </div>
-    <div>
-        <div class="flex flex-row mt-5 mb-2 text-gray-600">
-            <div class="text-xs me-3">
-                {blog.date}
-            </div>
-            <div class="text-xs font-semibold text-gray-600">
-                {blog.tag}
-            </div>
-        </div>
+    <div class="mt-5 mb-2">
+        <Meta
+            language="{language}"
+            blog="{blog}"
+        />
     </div>
     <div>
         <a href="/{language}/blog/{blog.slug[language]}">
-            <h3 class="text-lg font-semibold text-gray-800">
+            <h3 class="post-header">
                 {blog.title[language]}
             </h3>
         </a>

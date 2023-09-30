@@ -56,9 +56,9 @@
             <div class="my-1">
                 <a href="/{data.language}" on:click={clickMobileMenu} use:setRouteActive>home</a>
             </div>
-            <div class="my-1">
-                <a href="/{data.language}/blog" on:click={clickMobileMenu} use:setRouteActive>blog</a>
-            </div>
+<!--            <div class="my-1">-->
+<!--                <a href="/{data.language}/blog" on:click={clickMobileMenu} use:setRouteActive>blog</a>-->
+<!--            </div>-->
             <div class="my-1">
                 <a href="/{data.language}/about" on:click={clickMobileMenu} use:setRouteActive>{$t("About")}</a>
             </div>
