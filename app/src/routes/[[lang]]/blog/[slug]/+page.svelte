@@ -1,6 +1,14 @@
 <script>
+    import {locale, t} from "$lib/lang/i18n.js";
+
     export let data;
+    $: ({post} = data)
+
 </script>
 
-<h1>{data.post.title}</h1>
-<div>{@html data.post.content}</div>
+<p>
+    lang = {data.language}
+</p>
+
+<p>
+</p>

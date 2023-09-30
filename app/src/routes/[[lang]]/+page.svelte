@@ -5,7 +5,6 @@
 
 
     export let data: PageData
-
     $: ({blogs} = data)
     // export let data;
     locale.set(data.language)
