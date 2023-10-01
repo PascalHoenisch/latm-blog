@@ -13,7 +13,9 @@ h2 {
     @apply text-gray-600 text-lg;
 }
 h3,
-h4,
+h4 {
+    @apply mt-5 mb-2 text-gray-800 text-base;
+}
 h5,
 h6 {
     font-size: inherit;
@@ -33,4 +35,8 @@ img{
 
 .footer {
     @apply text-gray-600 hover:text-gray-900 text-sm;
+}
+
+.legal-text{
+    @apply text-gray-700 text-sm;
 }
