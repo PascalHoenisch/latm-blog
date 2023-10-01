@@ -9,7 +9,9 @@
 <!--        todo format date for country-->
         {blog.date}
     </div>
-    <div class="text-xs font-semibold text-gray-600">
-        {blog.tag}
-    </div>
+    {#each blog.tag as tag}
+        <div class="text-xs font-semibold text-gray-600 me-2">
+            {tag}
+        </div>
+    {/each}
 </div>

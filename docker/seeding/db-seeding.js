@@ -1,7 +1,10 @@
 db.getCollection("blogs").insertOne({
     author: "Pascal",
     date: "1.9.2023",
-    tag: "homeoffice",
+    tag: [
+        "homeoffice",
+        "development"
+    ],
     title: {
         en: "Db seeding",
         es: "Db siembra",
