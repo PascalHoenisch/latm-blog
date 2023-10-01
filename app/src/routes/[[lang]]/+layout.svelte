@@ -68,7 +68,7 @@
                         </div>
 
                         <div class="my-1">
-                            <div class="flex flex-row" on:click={changeLanguageStatus}>
+                            <div class="flex flex-row" on:keypress={changeLanguageStatus} on:click={changeLanguageStatus} role="button" tabindex="0">
                                 <div>
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                          stroke="currentColor" class="w-6 h-6">

@@ -14,6 +14,6 @@
             blog="{post}"
     />
 </div>
-<div class="pt-5">
+<div class="pt-5 text-base text-gray-700">
     {@html post.content[data.language] }
 </div>
