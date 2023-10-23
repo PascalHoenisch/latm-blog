@@ -11,6 +11,7 @@ This blog is also my first time using Node.js / Svelte.
    ```shell
     cp env.dist .env
     cp app/env.dist .env
+    make up-dev
    ```
 
 Then change the credentials to something save.
@@ -23,11 +24,24 @@ Simply run this cmd:
 make db-seeding
 ```
 
+### Adding Images
+
+Adding Images to thumbor in development is done with:
+
+```shell
+curl -i -H "Content-Type: image/png" -H "Slug: miau.png" \
+  -XPOST http://localhost:80/image --data-binary "@miau.png"
+```
+When the image is bigger than ~ 1mb it fails. 
+The option `UPLOAD_MAX_SIZE` does not seem to work. (Properly I did something wrong).
+
+For more information see the [documentation](https://thumbor.readthedocs.io/en/latest) of thumbor.
+
 ## Tech-Stack
 
 - Svelte
 - SvelteKit (nodejs)
 - Tailwind
 - Mongodb
-- Nginx as readonly image file server (can also be used as a CDN later on)
+- Thumbor as image CDN, hosted with kubernetes in production
 - docker (only docker compose yet)
