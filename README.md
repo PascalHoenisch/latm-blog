@@ -4,7 +4,15 @@ This blog based on SvelteKit will be used to track the journies in South America
 
 This blog is also my first time using Node.js / Svelte.
 
-## Setup
+# Setup
+
+## Production
+
+   ```shell
+    HOST=127.0.0.1 PORT=4173 ORIGIN=https://travel.hoenisch.eu node -r dotenv/config build & 
+   ```
+
+## Development
 
 ### Env
 

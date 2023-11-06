@@ -6,7 +6,6 @@ import {IMAGE_SERVER_URL} from "$env/static/private";
 export function load({params}) {
     // @ts-ignore
     let language = locales[params.lang ?? 'en'];
-
     return {
         language: language,
         imageServerUrl: IMAGE_SERVER_URL,

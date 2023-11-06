@@ -9,5 +9,6 @@ db.createUser({
   roles: [{ role: 'readWrite', db: 'blogs' }],
 });
 db.createCollection('blogs')
+db.createCollection('authors')
 
 EOF

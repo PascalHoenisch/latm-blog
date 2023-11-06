@@ -44,7 +44,7 @@ export default {
         "german":"deutsch",
         "homepage.blog.description":"Hier sind ein paar blogs.",
         "About":"Über uns",
-        "about.proclaimed":"Ein paar Information über uns",
+        "about.pascal":"Hey, ich bin Pascal. <br> Eigentlich komme ich aus einer kleinen Stadt in Franken, bin aber jetzt nach einem schönen Aufenthalt in Ostsachsen in Südamerika auf der Suche nach dem nächsten Hostel gelandet. Das Leben genieße ich, indem ich klettern gehe oder mich mit irgendwelchen Technik-Dingen beschäftige. Vorzugsweise ist das IT bzw. das Anfangen von kleinenen Webprojekten (wie z. B. dieser Blog hier). Seit Ende 2023 suche ich nicht nur Hostels in Südamerika, sondern gerne auch schöne und spannende Erfahrungen mit neuen Menschen und vlt. auch einer anderen Perspektive auf das klassische europäische Leben.",
         "Imprint":"Impressum",
         "Privacy":"Datenschutz",
         "imprint.legal.text":"Da es sich bei dieser Website nicht um einen geschäftsmäßigen Online-Dienst nach 5 Telemediengesetz (TMG) handelt, müssen keine Kontaktdaten angegeben werden. Hier kannst du mich trotzdem erreichen (wird nur nicht so oft gelesen):",

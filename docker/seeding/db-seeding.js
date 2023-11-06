@@ -39,3 +39,18 @@ db.getCollection("blogs").insertOne({
         }
     }
 });
+
+db.getCollection("authors").insertOne({
+    alt: {
+        en: "john doe looking sweet at you with a hat",
+        es: "John Doe te mira dulcemente y tiene un sombrero puesto.",
+        de: "john doe schaut dich süß an und hat dabei einen hut auf"
+    },
+    about: {
+        en: "hello I am John doe <br> i like to travel",
+        es: "hola soy john doe, me gusta viajar",
+        de: "hallo ich bin John doe, <br> ich reise gerne"
+    },
+    imageUri: "/author/nice-image.jpeg",
+    name: "John Doe"
+});
