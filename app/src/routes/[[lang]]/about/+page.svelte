@@ -12,10 +12,12 @@
 <section>
     {#each authors as author}
         <Author
-                imageServerUrl="{author.imageServerUrl}"
-                imageDescription="{$t(author.alt)}"
+                imageServerUrl="{data.imageServerUrl}"
+                imageDescription="{author.alt}"
                 imagePath="{author.imageUri}"
-                aboutText="{$t(author.about)}"
+                aboutText="{author.about}"
+                language="{data.language}"
+                name="{author.name}"
         />
     {/each}
 </section>
