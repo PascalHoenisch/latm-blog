@@ -53,3 +53,9 @@ For more information see the [documentation](https://thumbor.readthedocs.io/en/l
 - Mongodb
 - Thumbor as image CDN, hosted with kubernetes in production
 - docker (only docker compose yet)
+
+## Licenses
+
+- Favicon:
+  - CC Attribution License by Solar Icons
+  - https://www.svgrepo.com/svg/528317/hiking-minimalistic
