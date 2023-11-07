@@ -6,5 +6,5 @@ export const load: PageServerLoad = async function () {
 
     return {
         authors: structuredClone(data)
-    }
+    };
 }

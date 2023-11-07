@@ -36,7 +36,7 @@ export default {
     de: {
         "init":" ",
         "homepage.title": "Hallo Welt!",
-        "homepage.subtitle": "reisen mit Zufall",
+        "homepage.subtitle": "Reisen mit Zufall",
         "homepage.welcome": "Hallo, <strong>{{name}}</strong>, wie gehts dir?",
         "homepage.time": "Die aktuelle Zeit ist: {{time}}",
         "spanish":"spanisch",
