@@ -16,9 +16,11 @@
         >
     </div>
     <div class="md:col-span-2">
-        <h2 class="invisible md:visible">{name}</h2>
         <div class="col-12">
-            {@html aboutText[language]}
+            <p>
+                {@html aboutText[language]}
+            </p>
         </div>
+        <h2 class="invisible md:visible">{name}</h2>
     </div>
 </article>

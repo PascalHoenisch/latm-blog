@@ -6,27 +6,11 @@ services:
   thumbor:
     image: ghcr.io/minimalcompact/thumbor:7.6.0
     environment:
-      # VIRTUAL_HOST is picked up by nginx-proxy. Here it's set for localhost
-      # but you usually need to point it to your domain, e.g. thumbor.example.com
-      - VIRTUAL_HOST=localhost
-      # THUMBOR_NUM_PROCESSES control how many processes run inside the container
-      # Normally this is set in connection with the number of CPU cores
-      # Note however that you can also use the docker-compose scale option to dynamically
-      # scale your thumbor instances
-      - THUMBOR_NUM_PROCESSES=4
-      # this would allow CORS from any origin (you can restrict to specific origins if you want)
-      - CORS_ALLOW_ORIGIN=*
-      # returns a webp image if browser Accept headers match
-      - AUTO_WEBP=True
-      # nginx-proxy does caching automatically, so no need to store the result storage cache
-      # (this greatly speeds up and saves on CPU)
-      - RESULT_STORAGE=thumbor.result_storages.no_storage
-      - RESULT_STORAGE_STORES_UNSAFE=1
-      - STORAGE=thumbor.storages.file_storage
-      - UPLOAD_MAX_SIZE=9e+8
-      - UPLOAD_ENABLED=1
-      - UPLOAD_PUT_ALLOWED=1
-      - SECURITY_KEY=topsecret
+      LOADER: thumbor.loaders.file_loader
+      FILE_LOADER_ROOT_PATH: /data
+    volumes:
+      - ./images:/data
+      - ./config/thumbor.conf:/etc/thumbor/thumbor.conf
     ports:
       - "8888:80"
     networks:
@@ -55,7 +39,6 @@ services:
       - "443:443"
     networks:
       - app
-
   mongo:
     image: mongo:latest
     restart: always

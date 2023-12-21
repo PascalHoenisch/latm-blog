@@ -10,7 +10,7 @@
 <article class="flex flex-col md:flex-row mt-6">
     <div class="md:basis-1/2">
         <img
-                src="{imageServerUrl}{blog.title_image.path}"
+                src="{blog.title_image.path}"
                 alt="{blog.title_image.description[language]}"
                 loading="lazy"
         >

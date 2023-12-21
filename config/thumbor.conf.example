@@ -1,0 +1,7 @@
+# thumbor.conf
+LOADER = 'thumbor.loaders.http_loader'
+
+# You would typically use a long, complex string as the security key
+SECURITY_KEY = "MY_SECURE_KEY"
+
+HTTP_LOADER_CONNECT_TIMEOUT
