@@ -25,6 +25,7 @@
 	"type": "module",
 	"dependencies": {
 		"dotenv": "^16.3.1",
+		"marked": "^11.1.0",
 		"mongodb": "^5.8.1"
 	}
 }

@@ -3,7 +3,6 @@
 
     export let language;
     export let blog;
-
 </script>
 
 <article class="flex flex-col md:flex-row mt-6">

@@ -4,9 +4,8 @@
     import BlogPreview from "$lib/blog/preview.svelte";
 
 
-    export let data: PageData
-    $: ({blogs} = data)
-    // export let data;
+    export let data: PageData;
+    $: ({blogs} = data);
     locale.set(data.language)
 </script>
 
