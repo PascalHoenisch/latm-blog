@@ -36,8 +36,11 @@
             />
         </div>
         <div class="text-gray-600 text-sm">
-            <a href="/{language}/blog/{blog.slug[language]}">
+            <p>
                 {blog.description[language]}
+            </p>
+            <a href="/{language}/blog/{blog.slug[language]}" class="underline hover:underline-offset-1 pt-8">
+                read more ...
             </a>
         </div>
         <div class="pt-5">

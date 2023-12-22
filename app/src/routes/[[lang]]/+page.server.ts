@@ -5,6 +5,7 @@ import {IMAGE_SERVER_SECURITY_KEY, IMAGE_SERVER_URL} from "$env/static/private";
 
 // todo make transformation generic, depending on the view port of the requesting device
 const transformations = '/300x200/smart';
+
 // Your SECURITY_KEY from the thumbor.conf file
 function generateSignedUrl(securityKey: string, transformations: string, imageUri: string, imageServer: string) {
     const path = `${transformations}/${imageUri}`;
@@ -12,6 +13,7 @@ function generateSignedUrl(securityKey: string, transformations: string, imageUr
 
     return `${imageServer}/${hash}${path}`;
 }
+
 const security_key = IMAGE_SERVER_SECURITY_KEY;
 const imageServerUrl = IMAGE_SERVER_URL;
 
@@ -22,7 +24,8 @@ const imageServerUrl = IMAGE_SERVER_URL;
  * @returns {Promise<{blogs: Array}>} An object containing an array of blogs with limited fields.
  */
 export const load: PageServerLoad = async function () {
-    const data = await blogs.find({}, {limit: 50, projection: {
+    const data = await blogs.find({}, {
+        limit: 50, projection: {
             title: 1,
             slug: 1,
             date: 1,
@@ -30,17 +33,23 @@ export const load: PageServerLoad = async function () {
             description: 1,
             tag: 1,
             title_image: 1
-        }}).toArray();
+        }
+    })
+        .sort({date: -1}).toArray();
 
     data.forEach(blog => {
-        blog.title_image.path = generateSignedUrl(
+        // add hash to url
+        // todo fix this, does not work currently (only unsafe images work)
+        /*blog.title_image.path = generateSignedUrl(
             security_key,
             transformations,
             blog.title_image.path,
             imageServerUrl
-        );
+        );*/
 
-        console.log(blog.title_image.path)
+        blog.title_image.path = `${imageServerUrl}/unsafe${transformations}/${blog.title_image.path}`;
+
+        //console.log(blog.title_image.path)
     });
 
     return {
