@@ -2,6 +2,8 @@
     export let language;
     export let blog;
 
+    export function formatDate(dateStr, locale='Your-Locale-Here'){
+    }
 </script>
 
 <div class="flex flex-row text-gray-600">

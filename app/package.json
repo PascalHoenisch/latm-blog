@@ -25,6 +25,7 @@
 	"type": "module",
 	"dependencies": {
 		"dotenv": "^16.3.1",
-		"mongodb": "^5.8.1"
+		"mongodb": "^5.8.1",
+		"svelte-timeago": "^0.1.2"
 	}
 }
