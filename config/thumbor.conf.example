@@ -5,3 +5,7 @@ LOADER = 'thumbor.loaders.http_loader'
 SECURITY_KEY = "MY_SECURE_KEY"
 
 ALLOW_UNSAFE_URL = False
+
+DETECTORS = [
+    'thumbor.detectors.face_detector',
+]

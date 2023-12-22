@@ -46,14 +46,14 @@
         <div class="pt-5">
             <div class="flex flex-row">
                 <div>
-                    <img src="{imageServerUrl}/author/the-other-cat.png" alt="author smiling at you"
+                    <img src="{blog.author.previewImageUri}" alt="{blog.author.previewImageAlt[language]}"
                          class="rounded-full w-11 h-11">
                 </div>
                 <div class="ms-3 flex flex-col">
                     <div>
-                        {blog.author}
+                        {blog.author.name}
                     </div>
-                    <div class="text-sm text-gray-500 font-light">socking the world</div>
+                    <div class="text-sm text-gray-500 font-light">{blog.author.slogan[language]}</div>
                 </div>
             </div>
         </div>

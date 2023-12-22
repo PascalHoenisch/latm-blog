@@ -1,4 +1,4 @@
-import {blogs} from "$db/blog";
+import {blogs, authors} from "$db/blog";
 import type {PageServerLoad} from './$types'
 import crypto from 'crypto';
 import {IMAGE_SERVER_SECURITY_KEY, IMAGE_SERVER_URL} from "$env/static/private";
@@ -24,6 +24,24 @@ const imageServerUrl = IMAGE_SERVER_URL;
  * @returns {Promise<{blogs: Array}>} An object containing an array of blogs with limited fields.
  */
 export const load: PageServerLoad = async function () {
+    // fetch authors
+    const authorData = await authors.find({}, {
+        limit: 50, projection: {
+            name: 1,
+            slogan: 1,
+            previewImageUri: 1,
+            previewImageAlt: 1
+        }
+    }).toArray();
+    const authorTransformation = "/300x300/filters:round_corner(20,255,255,255)";
+
+    // Update each author's previewImageUri
+    authorData.forEach(author => {
+        const updatedPreviewImagePath = `${imageServerUrl}/unsafe${authorTransformation}/${author.previewImageUri}`
+        author.previewImageUri = updatedPreviewImagePath;
+    });
+
+    // fetch blogs
     const data = await blogs.find({}, {
         limit: 50, projection: {
             title: 1,
@@ -35,24 +53,26 @@ export const load: PageServerLoad = async function () {
             title_image: 1
         }
     })
-        .sort({date: -1}).toArray();
+        .sort({date: -1})
+        .toArray();
 
-    data.forEach(blog => {
-        // add hash to url
-        // todo fix this, does not work currently (only unsafe images work)
-        /*blog.title_image.path = generateSignedUrl(
-            security_key,
-            transformations,
-            blog.title_image.path,
-            imageServerUrl
-        );*/
-
-        blog.title_image.path = `${imageServerUrl}/unsafe${transformations}/${blog.title_image.path}`;
-
-        //console.log(blog.title_image.path)
+    const newData = data.map(blog => {
+        // Find the corresponding author data
+        const authorDataItem = authorData.find(author => author.name === blog.author);
+        // Update title image path
+        const updatedTitleImagePath = `${imageServerUrl}/unsafe${transformations}/${blog.title_image.path}`;
+        // Return updated blog object
+        return {
+            ...blog,
+            author: authorDataItem ? authorDataItem : blog.author,  // update author if found in authorData, otherwise keep existing
+            title_image:{
+                ...blog.title_image,
+                path: updatedTitleImagePath
+            }
+        };
     });
 
     return {
-        blogs: structuredClone(data)
+        blogs: structuredClone(newData)
     }
 }
