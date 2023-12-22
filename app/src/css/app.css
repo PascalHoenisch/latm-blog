@@ -26,7 +26,7 @@ a{
     @apply transition duration-150 hover:underline-offset-4;
 }
 img{
-    @apply rounded-xl border border-gray-400 w-full h-full;
+    @apply rounded-xl border border-gray-400 w-full;
 }
 
 .post-header {

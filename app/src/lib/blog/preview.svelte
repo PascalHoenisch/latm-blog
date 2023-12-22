@@ -2,20 +2,19 @@
     import Meta from "$lib/blog/meta.svelte";
 
     export let language;
-    export let imageServerUrl;
     export let blog;
 
 </script>
 
 <article class="flex flex-col md:flex-row mt-6">
-    <div class="md:basis-1/2">
+    <div class="md:basis-1/3">
         <img
                 src="{blog.title_image.path}"
                 alt="{blog.title_image.description[language]}"
                 loading="lazy"
         >
     </div>
-    <div class="flex flex-col md:ms-3">
+    <div class="flex flex-col md:ms-3 md:basis-2/3">
         <div class="mt-5 md:hidden">
             <Meta 
                     language="{language}"
