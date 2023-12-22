@@ -34,8 +34,8 @@
 </script>
 
 <div class="md:flex md:flex-row">
-    <div class="md:basis-1/5"></div>
-    <div class="md:basis-3/5">
+    <div class="md:basis-1/8 lg:basis-1/5"></div>
+    <div class="md:basis-6/8 lg:basis-3/5">
         <div class="flex flex-col h-screen ">
             <div class="p-3 sm:p-3" id="header">
                 <div class="rounded-xl flex flex-row">
@@ -176,7 +176,7 @@
             {/if}
         </div>
     </div>
-    <div class="md:basis-1/5"></div>
+    <div class="md:basis-1/8 lg:basis-1/5"></div>
 </div>
 
 
