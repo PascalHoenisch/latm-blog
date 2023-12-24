@@ -74,5 +74,5 @@ export const load: PageServerLoad = async function () {
 
     return {
         blogs: structuredClone(newData)
-    }
-}
+    };
+};
