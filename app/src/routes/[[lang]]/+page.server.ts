@@ -21,7 +21,7 @@ export const load: PageServerLoad = async function () {
 
     // Update each author's previewImageUri
     authorData.forEach(author => {
-        author.previewImageUri = generateSignedUrl(author.previewImageUri, "300x300/filters:round_corner(20,255,255,255)");
+        author.previewImageUri = generateSignedUrl(author.previewImageUri, "100x100/filters:round_corner(20,255,255,255)");
     });
 
     // fetch blogs
