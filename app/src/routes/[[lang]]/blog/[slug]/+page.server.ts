@@ -28,7 +28,6 @@ export const load: PageServerLoad = async function ({params}) {
 
     if (!data) throw error(404);
 
-    let updated: boolean = false;
     // For each language, convert the Markdown to HTML, replace image links, and store the HTML content
     for (const lang of ['de', 'en', 'es']) {
         // Only convert if cached html is empty and markdown is not empty
@@ -39,7 +38,7 @@ export const load: PageServerLoad = async function ({params}) {
             // Escape double quotes
             markdownContent = markdownContent.replace(/"/g, "\"");
             // Find all the images' raw paths in markdownContent within round brackets after "!"
-            const regex = /!\[.*?\]\((.*?)\)/g;
+            const regex: RegExp = /!\[.*?\]\((.*?)\)/g;
             let match;
 
             // Loop over all regex matches
