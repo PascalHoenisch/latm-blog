@@ -30,6 +30,7 @@ export const load: PageServerLoad = async function ({params}) {
     let updated: boolean = false;
     // For each language, convert the Markdown to HTML, replace image links, and store the HTML content
     for (const lang of ['de', 'en', 'es']) {
+        // Only convert if cached html is empty and markdown is not empty
         if (data.content.cached_html[lang].trim() === '' && data.content.md[lang].trim() !== '') {
             let markdownContent = data.content.md[lang];
             // Escape single quotes
