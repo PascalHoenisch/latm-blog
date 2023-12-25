@@ -14,6 +14,6 @@
             blog="{post}"
     />
 </div>
-<div class="pt-5 text-base text-gray-700">
+<div class="pt-5 text-base text-gray-700 blog-entry">
     {@html post.content.cached_html[data.language] }
 </div>

@@ -44,3 +44,7 @@ img{
 ul{
     @apply list-disc ps-4;
 }
+
+div.blog-entry img {
+    @apply my-3;
+}
