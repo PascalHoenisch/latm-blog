@@ -18,7 +18,8 @@ This blog is also my first time using Node.js / Svelte.
 
    ```shell
     cp env.dist .env
-    cp app/env.dist .env
+    cp app/.env.dist .env
+    cp config/thumbor.conf.example config/thumbor.conf
     make up-dev
    ```
 
