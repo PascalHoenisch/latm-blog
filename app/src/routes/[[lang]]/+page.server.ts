@@ -1,29 +1,6 @@
 import {authors, blogs} from "$db/blog";
 import type {PageServerLoad} from './$types'
-import crypto from 'crypto';
-import url from 'url';
-import {IMAGE_SERVER_SECURITY_KEY, IMAGE_SERVER_URL} from "$env/static/private";
-
-// todo make transformation generic, depending on the view port of the requesting device
-const transformations = '600x400/smart';
-const imageServerUrl: string = IMAGE_SERVER_URL;
-
-function generateSignedUrl(transformations: string, imageUri: string) {
-    const securityKey: string = IMAGE_SERVER_SECURITY_KEY;
-    const imageServer: string = IMAGE_SERVER_URL;
-
-    const urlToSign: string = `${transformations}/${imageUri}`;
-    // Create a HMAC SHA1 hash and digest it as base64
-    const hmac = crypto.createHmac('sha1', securityKey);
-    hmac.update(`${transformations}/${imageUri}`);
-    let hash: string = hmac.digest('base64');
-
-// Replace '+' with '-', '/' with '_' and remove trailing '='
-    hash = hash.replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
-
-// Create the safe URL by appending the encoded_signature to the beginning of the URL
-    return url.resolve(imageServer, `/${encodeURIComponent(hash)}=/${urlToSign}`);
-}
+import {generateSignedUrl} from '$lib/helper/imageUri';
 
 /**
  * Fetches and returns a list of blogs with limited fields (only for preview purposes) from the database.
@@ -41,12 +18,10 @@ export const load: PageServerLoad = async function () {
             previewImageAlt: 1
         }
     }).toArray();
-    const authorTransformation = "300x300/filters:round_corner(20,255,255,255)";
 
     // Update each author's previewImageUri
     authorData.forEach(author => {
-        const updatedPreviewImagePath = `${imageServerUrl}/unsafe/${authorTransformation}/${author.previewImageUri}`
-        author.previewImageUri = updatedPreviewImagePath;
+        author.previewImageUri = generateSignedUrl(author.previewImageUri, "300x300/filters:round_corner(20,255,255,255)");
     });
 
     // fetch blogs
@@ -64,13 +39,15 @@ export const load: PageServerLoad = async function () {
         .sort({date: -1})
         .toArray();
 
+    /**
+     * Loads blogs and author data, updates image paths, and returns structured data.
+     * @returns {Promise<{blogs: Array}>} - An array of blogs with updated image paths and author data.
+     */
     const newData = data.map(blog => {
         // Find the corresponding author data
         const authorDataItem = authorData.find(author => author.name === blog.author);
         // Update title image path
-        const updatedTitleImagePath = generateSignedUrl(transformations, blog.title_image.path);
-        // const updatedTitleImagePath = `${imageServerUrl}/unsafe${transformations}/${blog.title_image.path}`;
-        console.log(updatedTitleImagePath);
+        const updatedTitleImagePath = generateSignedUrl(blog.title_image.path);
         // Return updated blog object
         return {
             ...blog,
