@@ -45,7 +45,7 @@ export const load: PageServerLoad = async function ({params}) {
             while ((match = regex.exec(markdownContent)) !== null) {
                 // match[1] gives the content that is inside the round brackets (image path)
                 const imagePath: string = match[1];
-                const signedUrl: string = generateSignedUrl(imagePath);
+                const signedUrl: string = generateSignedUrl(imagePath, "800x600/smart");
                 // Replace the original image path with the signed URL
                 markdownContent = markdownContent.replace(imagePath, signedUrl);
             }
