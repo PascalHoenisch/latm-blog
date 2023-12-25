@@ -16,29 +16,29 @@ services:
     networks:
       - app
 
-  nginx-proxy:
-    image: ghcr.io/minimalcompact/thumbor-nginx-proxy-cache
-    environment:
-      # setting the DEFAULT_HOST to the same as the VIRTUAL_HOST above.
-      # Makes sure it works irrespective of the host name
-      # Normally this won't be necessary, but it helps for testing.
-      - DEFAULT_HOST=localhost
-      # optional: control cache memory size (default 500m), cache size (default 10g) and inactive (default 300m)
-      #           see https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_cache_path
-      - PROXY_CACHE_SIZE=10g
-      - PROXY_CACHE_MEMORY_SIZE=500m
-      - PROXY_CACHE_INACTIVE=300m
-    volumes:
-      # this is essential for nginx-proxy to detect docker containers, scaling etc
-      # see https://github.com/nginx-proxy/nginx-proxy
-      - /var/run/docker.sock:/tmp/docker.sock:ro
-      # mapping cache folder, to persist it independently of the container
-      - ./cache:/var/cache/nginx
-    ports:
-      - "80:80"
-      - "443:443"
-    networks:
-      - app
+  #nginx-proxy:
+  #  image: ghcr.io/minimalcompact/thumbor-nginx-proxy-cache
+  #  environment:
+  #    # setting the DEFAULT_HOST to the same as the VIRTUAL_HOST above.
+  #    # Makes sure it works irrespective of the host name
+  #    # Normally this won't be necessary, but it helps for testing.
+  #    - DEFAULT_HOST=localhost
+  #    # optional: control cache memory size (default 500m), cache size (default 10g) and inactive (default 300m)
+  #    #           see https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_cache_path
+  #    - PROXY_CACHE_SIZE=10g
+  #    - PROXY_CACHE_MEMORY_SIZE=500m
+  #    - PROXY_CACHE_INACTIVE=300m
+  #  volumes:
+  #    # this is essential for nginx-proxy to detect docker containers, scaling etc
+  #    # see https://github.com/nginx-proxy/nginx-proxy
+  #    - /var/run/docker.sock:/tmp/docker.sock:ro
+  #    # mapping cache folder, to persist it independently of the container
+  #    - ./cache:/var/cache/nginx
+  #  ports:
+  #    - "80:80"
+  #    - "443:443"
+  #  networks:
+  #    - app
   mongo:
     image: mongo:latest
     restart: always
