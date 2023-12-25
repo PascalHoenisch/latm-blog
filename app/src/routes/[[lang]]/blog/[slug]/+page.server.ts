@@ -2,6 +2,7 @@ import {error} from '@sveltejs/kit';
 import type {PageServerLoad} from './$types';
 import {blogs} from "$db/blog";
 import {marked} from "marked";
+import {generateSignedUrl} from "$lib/helper/imageUri";
 
 // @ts-ignore because tutorial says so
 export const load: PageServerLoad = async function ({params}) {
@@ -37,14 +38,28 @@ export const load: PageServerLoad = async function ({params}) {
             markdownContent = markdownContent.replace(/'/g, "\'");
             // Escape double quotes
             markdownContent = markdownContent.replace(/"/g, "\"");
+            // Find all the images' raw paths in markdownContent within round brackets after "!"
+            const regex = /!\[.*?\]\((.*?)\)/g;
+            let match;
+
+            // Loop over all regex matches
+            while ((match = regex.exec(markdownContent)) !== null) {
+                // match[1] gives the content that is inside the round brackets (image path)
+                const imagePath: string = match[1];
+                const signedUrl: string = generateSignedUrl(imagePath);
+                // Replace the original image path with the signed URL
+                markdownContent = markdownContent.replace(imagePath, signedUrl);
+            }
+
+            // Now markdownContent has all images paths replaced with signed URLs
 
             let htmlContent: string | Promise<string> = marked(markdownContent);
-            // Replace images with proper image links and alt text
-            htmlContent = htmlContent.replace(/!\[(.*?)\]\((.*?)\)/g, '![$1](https://your-image-base-url/$2)');
-            // Escape single quotes
-            htmlContent = htmlContent.replace(/'/g, "\'");
-            // Escape double quotes
-            htmlContent = htmlContent.replace(/"/g, "\"");
+            if (typeof htmlContent === "string") {
+                // Escape single quotes
+                htmlContent = htmlContent.replace(/'/g, "\'");
+                // Escape double quotes
+                htmlContent = htmlContent.replace(/"/g, "\"");
+            }
 
             data.content.cached_html[lang] = `${htmlContent}`;
             // Store the html in the db
