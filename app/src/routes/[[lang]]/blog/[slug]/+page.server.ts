@@ -46,17 +46,13 @@ export const load: PageServerLoad = async function ({params}) {
             htmlContent = htmlContent.replace(/"/g, "\"");
 
             data.content.cached_html[lang] = `${htmlContent}`;
-            updated = true;
+            // Store the html in the db
+            await blogs.updateOne({_id: data._id}, {
+                $set: {
+                    'content.cached_html': data.content.cached_html
+                }
+            });
         }
-    }
-
-    if (updated) {
-        // Store the html in the db
-        await blogs.updateOne({_id: data._id}, {
-            $set: {
-                'content.cached_html': data.content.cached_html
-            }
-        });
     }
 
     return {
