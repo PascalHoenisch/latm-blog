@@ -1,21 +1,29 @@
-import {blogs, authors} from "$db/blog";
+import {authors, blogs} from "$db/blog";
 import type {PageServerLoad} from './$types'
 import crypto from 'crypto';
+import url from 'url';
 import {IMAGE_SERVER_SECURITY_KEY, IMAGE_SERVER_URL} from "$env/static/private";
 
 // todo make transformation generic, depending on the view port of the requesting device
-const transformations = '/300x200/smart';
+const transformations = '600x400/smart';
+const imageServerUrl: string = IMAGE_SERVER_URL;
 
-// Your SECURITY_KEY from the thumbor.conf file
-function generateSignedUrl(securityKey: string, transformations: string, imageUri: string, imageServer: string) {
-    const path = `${transformations}/${imageUri}`;
-    const hash = crypto.createHmac('sha1', securityKey).update(path).digest('hex');
+function generateSignedUrl(transformations: string, imageUri: string) {
+    const securityKey: string = IMAGE_SERVER_SECURITY_KEY;
+    const imageServer: string = IMAGE_SERVER_URL;
 
-    return `${imageServer}/${hash}${path}`;
+    const urlToSign: string = `${transformations}/${imageUri}`;
+    // Create a HMAC SHA1 hash and digest it as base64
+    const hmac = crypto.createHmac('sha1', securityKey);
+    hmac.update(`${transformations}/${imageUri}`);
+    let hash: string = hmac.digest('base64');
+
+// Replace '+' with '-', '/' with '_' and remove trailing '='
+    hash = hash.replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+
+// Create the safe URL by appending the encoded_signature to the beginning of the URL
+    return url.resolve(imageServer, `/${encodeURIComponent(hash)}=/${urlToSign}`);
 }
-
-const security_key = IMAGE_SERVER_SECURITY_KEY;
-const imageServerUrl = IMAGE_SERVER_URL;
 
 /**
  * Fetches and returns a list of blogs with limited fields (only for preview purposes) from the database.
@@ -33,11 +41,11 @@ export const load: PageServerLoad = async function () {
             previewImageAlt: 1
         }
     }).toArray();
-    const authorTransformation = "/300x300/filters:round_corner(20,255,255,255)";
+    const authorTransformation = "300x300/filters:round_corner(20,255,255,255)";
 
     // Update each author's previewImageUri
     authorData.forEach(author => {
-        const updatedPreviewImagePath = `${imageServerUrl}/unsafe${authorTransformation}/${author.previewImageUri}`
+        const updatedPreviewImagePath = `${imageServerUrl}/unsafe/${authorTransformation}/${author.previewImageUri}`
         author.previewImageUri = updatedPreviewImagePath;
     });
 
@@ -60,12 +68,14 @@ export const load: PageServerLoad = async function () {
         // Find the corresponding author data
         const authorDataItem = authorData.find(author => author.name === blog.author);
         // Update title image path
-        const updatedTitleImagePath = `${imageServerUrl}/unsafe${transformations}/${blog.title_image.path}`;
+        const updatedTitleImagePath = generateSignedUrl(transformations, blog.title_image.path);
+        // const updatedTitleImagePath = `${imageServerUrl}/unsafe${transformations}/${blog.title_image.path}`;
+        console.log(updatedTitleImagePath);
         // Return updated blog object
         return {
             ...blog,
             author: authorDataItem ? authorDataItem : blog.author,  // update author if found in authorData, otherwise keep existing
-            title_image:{
+            title_image: {
                 ...blog.title_image,
                 path: updatedTitleImagePath
             }

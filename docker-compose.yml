@@ -10,7 +10,7 @@ services:
       FILE_LOADER_ROOT_PATH: /data
     volumes:
       - ./images:/data
-      - ./config/thumbor.conf:/etc/thumbor/thumbor.conf
+      - ./config/thumbor.conf:/app/thumbor.conf
     ports:
       - "8888:80"
     networks:

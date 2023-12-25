@@ -50,8 +50,6 @@ export const load: PageServerLoad = async function ({params}) {
         }
     }
 
-    console.log(data.content.cached_html);
-
     if (updated) {
         // Store the html in the db
         await blogs.updateOne({_id: data._id}, {
