@@ -5,7 +5,6 @@ services:
 
   thumbor:
     image: thumbororg/thumbor:latest
-    platform: linux/amd64
     environment:
       LOADER: thumbor.loaders.file_loader
       FILE_LOADER_ROOT_PATH: /data
