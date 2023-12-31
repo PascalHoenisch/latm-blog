@@ -5,14 +5,13 @@ services:
   thumbor:
     image: thumbororg/thumbor:latest
     environment:
-      VIRTUAL_HOST: localhost
       LOADER: thumbor.loaders.file_loader
       FILE_LOADER_ROOT_PATH: /data
     volumes:
       - ./images:/data
       - ./config/thumbor.conf:/app/thumbor.conf
     ports:
-      - "8888:80"
+      - "8888:8888"
     networks:
       - app
 
