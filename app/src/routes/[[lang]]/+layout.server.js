@@ -4,7 +4,8 @@ import {IMAGE_SERVER_URL} from "$env/static/private";
 // @ts-ignore
 export function load({params}) {
     // @ts-ignore
-    let language = locales[params.lang ?? 'en'];
+    // set language fallback to german /de prefix
+    let language = locales[params.lang ?? 'de'];
     return {
         language: language,
         imageServerUrl: IMAGE_SERVER_URL,
