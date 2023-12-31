@@ -2,10 +2,10 @@
 version: '3.9'
 
 services:
-
   thumbor:
     image: thumbororg/thumbor:latest
     environment:
+      VIRTUAL_HOST: localhost
       LOADER: thumbor.loaders.file_loader
       FILE_LOADER_ROOT_PATH: /data
     volumes:
