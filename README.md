@@ -10,7 +10,7 @@ This blog is also my first time using Node.js / Svelte.
 
    ```shell
    npm run build && \
-    HOST=127.0.0.1 PORT=4173 ORIGIN=https://travel.hoenisch.eu node -r dotenv/config build 2>&1 /var/log/latm-blog/error.log
+    HOST=127.0.0.1 PORT=4173 ORIGIN=https://travel.hoenisch.eu node -r dotenv/config build 2>/var/log/latm-blog/error.log 1>/var/log/latm-blog/access.log
    ```
   Then run ```Strg + Z``` and ```bg``` to push the task into the background.
 ## Development

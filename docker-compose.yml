@@ -5,8 +5,8 @@ services:
   thumbor:
     image: thumbororg/thumbor:7.6.0-py-3.11
     volumes:
-      - ./images:/data
-      - ./config/thumbor.conf:/etc/thumbor.conf
+      - ./images:/data:Z
+      - ./config/thumbor.conf:/etc/thumbor.conf:ro
     ports:
       - "8888:8888"
     networks:
