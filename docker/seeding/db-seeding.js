@@ -1,6 +1,6 @@
 db.getCollection("blogs").insertOne({
     author: "Pascal",
-    date: "1.9.2023",
+    date: ISODate('2023-11-23T08:30:00.000Z'),
     tag: [
         "homeoffice",
         "development"

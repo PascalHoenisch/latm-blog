@@ -25,8 +25,11 @@ export const load: PageServerLoad = async function () {
     });
 
     // fetch blogs
+    // @ts-ignore
+    // @ts-ignore
     const data = await blogs.find({}, {
         limit: 50, projection: {
+            id: 1,
             title: 1,
             slug: 1,
             date: 1,
