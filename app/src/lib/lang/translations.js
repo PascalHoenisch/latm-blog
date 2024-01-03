@@ -1,7 +1,7 @@
 export default {
     en: {
         "init":" ",
-        "homepage.title": "Hello, World!",
+        "homepage.title": "Travel blog by Pascal and Anja about their experiences in South America.",
         "homepage.subtitle": "travel by coincidence",
         "homepage.welcome": "Hi <strong>{{name}}</strong>, how are you?",
         "homepage.time": "The current time is: {{time}}",
@@ -18,7 +18,7 @@ export default {
     },
     es: {
         "init":" ",
-        "homepage.title": "¡Hola Mundo!",
+        "homepage.title": "Blog de viajes de Pascal y Anja sobre sus experiencias en Sudamérica.",
         "homepage.subtitle": "viajar por casualidad",
         "homepage.welcome": "Hola, <strong>{{name}}</strong>, ¿cómo estás?",
         "homepage.time": "La hora actual es: {{time}}",
@@ -35,7 +35,7 @@ export default {
     },
     de: {
         "init":" ",
-        "homepage.title": "Hallo Welt!",
+        "homepage.title": "Reiseblog von Pascal und Anja über ihre Südamerika-Erfahrungen.",
         "homepage.subtitle": "Reisen mit Zufall",
         "homepage.welcome": "Hallo, <strong>{{name}}</strong>, wie gehts dir?",
         "homepage.time": "Die aktuelle Zeit ist: {{time}}",

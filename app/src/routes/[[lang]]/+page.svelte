@@ -9,6 +9,7 @@
     locale.set(data.language)
 </script>
 
+<title>{$t("homepage.title")}</title>
 <section>
     {#each blogs as blog}
         <BlogPreview

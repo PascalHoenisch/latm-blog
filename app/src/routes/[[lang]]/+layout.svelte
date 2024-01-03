@@ -32,7 +32,6 @@
 
 
 </script>
-
 <div class="md:flex md:flex-row">
     <div class="md:basis-1/8 lg:basis-1/5"></div>
     <div class="md:basis-6/8 lg:basis-3/5">
