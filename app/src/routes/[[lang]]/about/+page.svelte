@@ -3,7 +3,7 @@
     import Author from "$lib/about/author.svelte";
 
     export let data;
-    locale.set(data.language)
+    locale.set(data.language);
 
     $: ({authors} = data)
 </script>
@@ -12,9 +12,8 @@
 <section>
     {#each authors as author}
         <Author
-                imageServerUrl="{data.imageServerUrl}"
                 imageDescription="{author.alt}"
-                imagePath="{author.imageUri}"
+                imageUri="{author.imageUri}"
                 aboutText="{author.about}"
                 language="{data.language}"
                 name="{author.name}"
