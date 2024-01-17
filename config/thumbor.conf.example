@@ -13,6 +13,9 @@ FILE_LOADER_ROOT_PATH = '/data'
 FILE_STORAGE_ROOT_PATH = '/data/storage'
 RESULT_STORAGE_FILE_STORAGE_ROOT_PATH = '/data/result-storage'
 
+# Set image caching time from default 1d to 1y
+MAX_AGE = 31536000
+
 ## Enable for debugging logging
 # THUMBOR_LOG_CONFIG = {
 #                         'version': 1,
