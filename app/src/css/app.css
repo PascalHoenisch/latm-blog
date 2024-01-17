@@ -48,3 +48,6 @@ ul{
 div.blog-entry img {
     @apply my-3;
 }
+div.blog-entry h3 {
+    @apply font-semibold text-gray-600 underline;
+}
