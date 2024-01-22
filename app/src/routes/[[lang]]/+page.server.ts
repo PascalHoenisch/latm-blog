@@ -11,7 +11,7 @@ import {generateSignedUrl} from '$lib/helper/imageUri';
 export const load: PageServerLoad = async function () {
     // fetch authors
     const authorData = await authors.find({}, {
-        limit: 50, projection: {
+        projection: {
             name: 1,
             slogan: 1,
             previewImageUri: 1,
