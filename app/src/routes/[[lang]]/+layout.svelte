@@ -2,6 +2,7 @@
     import {t, locale} from "$lib/lang/i18n.js";
     import "$css/app.css";
     import {fade, fly} from 'svelte/transition';
+    import * as domain from "domain";
 
     export let data;
     locale.set(data.language);
@@ -30,8 +31,13 @@
         return {};
     }
 
-
 </script>
+
+<svelte:head>
+    <link rel="alternate" type="application/rss+xml"
+          title="RSS" href="https://{data.domain}/feed.rss" />
+</svelte:head>
+
 <div class="md:flex md:flex-row">
     <div class="md:basis-1/8 lg:basis-1/5"></div>
     <div class="md:basis-6/8 lg:basis-3/5">

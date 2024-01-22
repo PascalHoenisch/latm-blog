@@ -3,7 +3,6 @@
     import type {PageData} from './$types';
     import BlogPreview from "$lib/blog/preview.svelte";
 
-
     export let data: PageData;
     $: ({blogs} = data);
     locale.set(data.language)

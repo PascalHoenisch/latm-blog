@@ -1,5 +1,5 @@
 import {locales} from "$lib/lang/i18n.js";
-import {IMAGE_SERVER_URL} from "$env/static/private";
+import {IMAGE_SERVER_URL, DOMAIN} from "$env/static/private";
 
 // @ts-ignore
 export function load({params}) {
@@ -9,5 +9,6 @@ export function load({params}) {
     return {
         language: language,
         imageServerUrl: IMAGE_SERVER_URL,
+        domain: DOMAIN,
     };
 }
