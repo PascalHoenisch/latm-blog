@@ -35,7 +35,7 @@
 
 <svelte:head>
     <link rel="alternate" type="application/rss+xml"
-          title="RSS" href="https://{data.domain}/feed.rss" />
+          title="RSS" href="https://{data.domain}/rss/feed.rss" />
 </svelte:head>
 
 <div class="md:flex md:flex-row">
