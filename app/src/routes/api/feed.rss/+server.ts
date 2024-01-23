@@ -1,4 +1,4 @@
-import {AUTHOR, DOMAIN, RSS_DESCRIPTION, RSS_IMAGE_TITLE, RSS_TITLE} from "$env/static/private";
+import {AUTHOR, DOMAIN, MAIL, RSS_DESCRIPTION, RSS_IMAGE_TITLE, RSS_TITLE} from "$env/static/private";
 import {getPreviewPosts} from "$lib/blog/get-post-preview";
 
 export async function GET() {
@@ -44,6 +44,7 @@ const xml =
           <title>${post.title['de']}</title>
           <description>${post.description['de']} </description>
           <link>https://${DOMAIN}/blog/${post.slug['de']}/</link>
+          <author>${post.author}, ${MAIL}</author>
           <pubDate>${new Date(post.date)}</pubDate>
         </item>
       `,
