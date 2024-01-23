@@ -7,7 +7,8 @@
 export function escapeXml(unsafe :string): string {
     // only escape the chars if they are part of a string of a child element
 
-    return unsafe.replace(/[<>&'"]/g, function (c) {
+    // @ts-ignore do not know what i am doing here
+    return unsafe.replace(/[<>&'"]/g, c => {
         switch (c) {
             case '<': return '&lt;';
             case '>': return '&gt;';
