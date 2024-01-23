@@ -15,6 +15,8 @@ export default {
         "Privacy":"Privacy",
         "imprint.legal.text":"You can contact me here (this mail address is not checked so often ;) ):",
         "privacy.legal.text":"todo",
+        "information":"Information",
+        "ki.translation.info":"This text has been translated from german to english with the help of ChatGPT."
     },
     es: {
         "init":" ",
@@ -32,6 +34,8 @@ export default {
         "Privacy":"Privacidad",
         "imprint.legal.text":"Ouedes contactarme aqui:",
         "privacy.legal.text":"todo",
+        "information":"Información",
+        "ki.translation.info":"El siguiente texto se ha traducido del alemán al espańol con la ayuda de ChatGPT."
     },
     de: {
         "init":" ",
