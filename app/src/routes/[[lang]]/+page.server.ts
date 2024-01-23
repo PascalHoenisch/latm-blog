@@ -1,7 +1,5 @@
 import type {PageServerLoad} from './$types'
 import {getPreviewPosts} from "$lib/blog/get-post-preview";
-import {authors, blogs} from "$db/blog";
-import {generateSignedUrl} from "$lib/helper/imageUri";
 import {getPreviewAuthors} from "$lib/author/preview";
 
 /**
