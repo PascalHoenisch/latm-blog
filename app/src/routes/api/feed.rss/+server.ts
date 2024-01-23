@@ -1,13 +1,27 @@
 import {AUTHOR, DOMAIN, RSS_DESCRIPTION, RSS_IMAGE_TITLE, RSS_TITLE} from "$env/static/private";
+import {getPreviewPosts} from "$lib/blog/get-post-preview";
 
 export async function GET() {
+    const posts = await getPreviewPosts();
+    const body:string = xml(posts);
+
+    console.log(body)
+
     const headers = {
         'Cache-Control': 'max-age=0, s-maxage=3600',
         'Content-Type': 'application/xml',
     };
 
     return new Response(
-        `
+        body,
+        {
+            headers: headers
+        }
+    );
+}
+
+const xml =
+    posts => `
 		<?xml version="1.0" encoding="utf-8"?>
         <rss version="2.0">
         
@@ -24,20 +38,20 @@ export async function GET() {
               <link>https://${DOMAIN}/de</link>
             </image>
         
-            <item>
-              <title>Titel des Eintrags</title>
-              <description>Kurze Zusammenfassung des Eintrags</description>
-              <link>Link zum vollständigen Eintrag</link>
-              <author>Autor des Artikels, E-Mail-Adresse</author>
-              <guid>Eindeutige Identifikation des Eintrages</guid>
-              <pubDate>Datum des Items</pubDate>
-            </item>
-        
+            ${posts
+        .map(
+            post =>
+                `
+        <item>
+          <title>${post.title['de']}</title>
+          <description>${post.description['de']} </description>
+          <link>https://${DOMAIN}/blog/${post.slug['de']}/</link>
+          <pubDate>${new Date(post.date)}</pubDate>
+        </item>
+      `,
+        )
+        .join('')}
+            
           </channel>
         
-        </rss>`.trim(),
-        {
-            headers: headers
-        }
-    );
-}
+        </rss>`.trim();
