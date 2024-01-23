@@ -5,8 +5,6 @@ export async function GET() {
     const posts = await getPreviewPosts();
     const body:string = xml(posts);
 
-    console.log(body)
-
     const headers = {
         'Cache-Control': 'max-age=0, s-maxage=3600',
         'Content-Type': 'application/xml',
