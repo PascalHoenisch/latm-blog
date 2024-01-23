@@ -46,7 +46,8 @@ ul{
 }
 
 div.blog-entry img {
-    @apply my-3;
+    /* todo center images in desktop view*/
+    @apply my-3 md:max-w-96 md:grid md:place-content-center;
 }
 div.blog-entry h3 {
     @apply font-semibold text-gray-600 underline;
