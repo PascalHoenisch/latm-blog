@@ -2,6 +2,7 @@ import type {PageServerLoad} from './$types'
 import {getPreviewPosts} from "$lib/blog/get-post-preview";
 import {authors, blogs} from "$db/blog";
 import {generateSignedUrl} from "$lib/helper/imageUri";
+import {getPreviewAuthors} from "$lib/author/preview";
 
 /**
  * Fetches and returns a list of blogs with limited fields (only for preview purposes) from the database.
@@ -11,19 +12,7 @@ import {generateSignedUrl} from "$lib/helper/imageUri";
  */
 export const load: PageServerLoad = async function () {
     // fetch authors
-    const authorData = await authors.find({}, {
-        projection: {
-            name: 1,
-            slogan: 1,
-            previewImageUri: 1,
-            previewImageAlt: 1
-        }
-    }).toArray();
-
-    // Update each author's previewImageUri
-    authorData.forEach(author => {
-        author.previewImageUri = generateSignedUrl(author.previewImageUri, "100x100/filters:round_corner(20,255,255,255)");
-    });
+    const authorData = await getPreviewAuthors();
 
     // fetch blogs
     // @ts-ignore
@@ -36,17 +25,13 @@ export const load: PageServerLoad = async function () {
      */
     const postsMappedWithAuthor = data.map(blog => {
         // Find the corresponding author data
+        // @ts-ignore author does not exist, because it exists
         const authorDataItem = authorData.find(author => author.name === blog.author);
-        // Update title image path
-        const updatedTitleImagePath = generateSignedUrl(blog.title_image.path);
         // Return updated blog object
         return {
             ...blog,
+            // @ts-ignore author does not exist, because it exists
             author: authorDataItem ? authorDataItem : blog.author,  // update author if found in authorData, otherwise keep existing
-            title_image: {
-                ...blog.title_image,
-                path: updatedTitleImagePath
-            }
         };
     });
 

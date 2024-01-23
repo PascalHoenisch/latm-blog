@@ -1,5 +1,5 @@
 import {generateSignedUrl} from "$lib/helper/imageUri";
-import {authors, blogs} from "$db/blog";
+import {blogs} from "$db/blog";
 
 /**
  * Fetches and returns a list of blogs with limited fields (only for preview purposes) from the database.
@@ -9,7 +9,7 @@ import {authors, blogs} from "$db/blog";
  */
 export async function getPreviewPosts() {
 
-    const previewPosts = blogs.find({}, {
+    const previewPosts = await blogs.find({}, {
         limit: 50, projection: {
             id: 1,
             title: 1,
@@ -24,5 +24,16 @@ export async function getPreviewPosts() {
         .sort({date: -1})
         .toArray();
 
-    return previewPosts;
+    return previewPosts.map(blog => {
+        // Update title image path
+        const updatedTitleImagePath = generateSignedUrl(blog.title_image.path);
+        // Return updated blog object
+        return {
+            ...blog,
+            title_image: {
+                ...blog.title_image,
+                path: updatedTitleImagePath
+            }
+        };
+    });
 }
