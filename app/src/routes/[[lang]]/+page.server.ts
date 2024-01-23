@@ -16,7 +16,6 @@ export const load: PageServerLoad = async function () {
 
     // fetch blogs
     // @ts-ignore
-    // @ts-ignore
     const data = await getPreviewPosts();
 
     /**
