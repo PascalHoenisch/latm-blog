@@ -7,7 +7,7 @@ It also features a RSS Feed under [travel.hoenisch.eu/api/feed.rss](https://trav
 
 ## Disclaimer
 This blog is also my first time using Node.js / Svelte. 
-So I am testing around a lot and sometimes the live server might be down ;)
+So I am testing around a lot and sometimes the production server might be down ;)
 
 # Setup
 
