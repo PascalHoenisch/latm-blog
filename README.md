@@ -52,7 +52,7 @@ For more information see the [documentation](https://thumbor.readthedocs.io/en/l
 - SvelteKit (nodejs)
 - Tailwind
 - Mongodb
-- Thumbor as image CDN, hosted with kubernetes in production
+- Thumbor as image CDN
 - docker (only docker compose yet)
 
 ## Licenses
