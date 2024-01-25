@@ -4,3 +4,4 @@ cache
 .env
 .env-mongo
 /app.tar.gz
+.idea
