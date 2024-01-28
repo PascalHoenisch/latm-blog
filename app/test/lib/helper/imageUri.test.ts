@@ -9,10 +9,10 @@ describe('test function generateSignedUrl', () => {
     process.env.IMAGE_SERVER_URL = 'MY_SECURE_KEY';
 
     test('generate a signedURL', () => {
-        const imageUrl :string = 'author/nice-image.jpeg';
-        const transformations :string = '600x400/smart';
+        const imageUrl: string = 'author/nice-image.jpeg';
+        const transformations: string = '600x400/smart';
 
-        const expectedResult:string = "http://localhost:8888/ol6OfxEEOA0IAmAyukLDQtOxpCY=/600x400/smart/author/nice-image.jpeg";
+        const expectedResult: string = "http://localhost:8888/ol6OfxEEOA0IAmAyukLDQtOxpCY=/600x400/smart/author/nice-image.jpeg";
 
         const actualResult = generateSignedUrl(imageUrl, transformations);
 
@@ -20,8 +20,8 @@ describe('test function generateSignedUrl', () => {
     });
 
     test('generate a signedURL with default transformations', () => {
-        const imageUrl = 'author/nice-image.jpeg';
-        const expectedResult = 'http://localhost:8888/ol6OfxEEOA0IAmAyukLDQtOxpCY=/600x400/smart/author/nice-image.jpeg';
+        const imageUrl: string = 'author/nice-image.jpeg';
+        const expectedResult: string = 'http://localhost:8888/ol6OfxEEOA0IAmAyukLDQtOxpCY=/600x400/smart/author/nice-image.jpeg';
 
         const actualResult = generateSignedUrl(imageUrl);
 
