@@ -20,9 +20,9 @@ export function generateSignedUrl(imageUri: string, transformations: string = '6
     hmac.update(`${transformations}/${imageUri}`);
     let hash: string = hmac.digest('base64');
 
-// Replace '+' with '-', '/' with '_' and remove trailing '='
+    // Replace '+' with '-', '/' with '_' and remove trailing '='
     hash = hash.replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
 
-// Create the safe URL by appending the encoded_signature to the beginning of the URL
+    // Create the safe URL by appending the encoded_signature to the beginning of the URL
     return url.resolve(imageServer, `/${encodeURIComponent(hash)}=/${urlToSign}`);
 }

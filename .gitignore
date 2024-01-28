@@ -5,3 +5,4 @@ cache
 .env-mongo
 /app.tar.gz
 .idea
+/app/coverage/
