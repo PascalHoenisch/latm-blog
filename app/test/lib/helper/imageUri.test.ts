@@ -1,5 +1,5 @@
 // @ts-ignore because it is defined as a shortcut in the svelte config
-import {generateSignedUrl} from '$lib/helper//imageUri'; // FIXME: replace with actual path
+import {generateSignedUrl} from '$lib/helper//imageUri';
 import {describe, test, expect} from "vitest";
 import * as process from "process";
 
@@ -22,7 +22,6 @@ describe('test function generateSignedUrl', () => {
     test('generate a signedURL with default transformations', () => {
         const imageUrl = 'author/nice-image.jpeg';
         const expectedResult = 'http://localhost:8888/ol6OfxEEOA0IAmAyukLDQtOxpCY=/600x400/smart/author/nice-image.jpeg';
-        // FIXME: replace with actual expectedResult
 
         const actualResult = generateSignedUrl(imageUrl);
 
